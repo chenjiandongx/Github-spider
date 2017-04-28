@@ -1,6 +1,6 @@
 import re
 import scrapy
-from github.items import langaugeitems, repoitems, useritems, resultcntitems
+from github.items import langaugeitems, repoitems, useritems, resultcntitems, imageitems
 
 
 class GithubSpider(scrapy.Spider):
@@ -11,13 +11,14 @@ class GithubSpider(scrapy.Spider):
         """ 爬虫入口
         
         func 参数:
-            self.prepare_repos: 查询仓库类数据
-            self.prepare_users: 查询用户类数据
-            self.parse_language: 查询对应语言的数据
-            self.parse_resultcnt: 查询返回结果数
+            self.prepare_repos:     查询仓库类数据
+            self.prepare_users:     查询用户类数据
+            self.parse_language:    查询对应语言的数据
+            self.parse_resultcnt:   查询返回结果数
+            self.parse_image:       查询头像下载地址
         """
         func = self.parse_resultcnt
-        urls = self.gen_urls(q="location", expr="UK", s="followers", stop=2)
+        urls = self.gen_urls(q="stars", expr="> 10000", s="stars", stop=2)
 
         for url in urls:
             yield scrapy.Request(url=url, callback=func)
@@ -34,7 +35,7 @@ class GithubSpider(scrapy.Spider):
         :param q: str
             查询的内容
                 Users 类: repos, followers, location
-                Repos 类: forks, stars
+                Repos 类: forks, stars, size
         
         :param s: str ( 默认是 best match )
             查询的内容按某个值排序
@@ -56,7 +57,7 @@ class GithubSpider(scrapy.Spider):
         type = " "
         if q in ["stars", "forks"]:
             type = "Repositories"
-        elif q == ["followers", "repos", "location"]:
+        elif q in ["followers", "repos", "location"]:
             type = "Users"
 
         urls = ['https://github.com/search?p={p}&o=desc&q={q}:"{expr}"&s={s}&type={type}&l={l}&utf8=%E2%9C%93'.
@@ -140,11 +141,22 @@ class GithubSpider(scrapy.Spider):
         result1 = [s.replace(",", "") for s in
                    re.findall(r'\S+(?= available repository)', html)]
         result2 = [s.replace(",", "") for s in
-                   re.findall(r'(?<=border-bottom pb-3\">\n\s{4}<h3>\n\s{4})\S+', html)]
+                   re.findall(r'pb-3\">\s+<h3>\s+([\d\,]+)', html)]
 
         item = resultcntitems.Item()
         if result1:
             item['result_cnt'] = result1
         if result2:
             item['result_cnt'] = result2
+        yield item
+
+
+    def parse_image(self, response):
+        """ 解析头像下载地址，并结合管道下载 """
+
+        html = response.body.decode("utf-8")
+        imgae_urls = re.findall(r'relative\" height=\"48\" src=\"(\S*)\"', html)
+
+        item = imageitems.Item()
+        item['image_urls'] = imgae_urls
         yield item

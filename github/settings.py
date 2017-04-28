@@ -64,8 +64,8 @@ COOKIES_ENABLED = False
 
 DOWNLOADER_MIDDLEWARES = {
    # 'github.middlewares.MyCustomDownloaderMiddleware': 543,
-   'github.middleware.useragent.RandomUserAgentMiddleware':400,
-   'github.middleware.httpproxy.ProxyMiddleware':750,
+   'github.middlewares.useragent.RandomUserAgentMiddleware':400,
+   'github.middlewares.httpproxy.ProxyMiddleware':750,
 }
 
 # Enable or disable extensions
@@ -76,9 +76,13 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'github.pipelines.GithubPipeline': 300,
-#}
+# ITEM_PIPELINES = {
+#    'github.pipelines.imagepipeline.MyImagesPipeline': 1,
+# }
+# images store path
+IMAGES_STORE = r'.\avatar'
+# 30 days of delay for images expiration
+IMAGES_EXPIRES = 30
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

@@ -3,7 +3,7 @@ from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 
 class RandomUserAgentMiddleware(UserAgentMiddleware):
 
-    def __init__(self, user_agent=''):
+    def __init__(self, user_agent='Scrapy'):
         super().__init__()
         self.user_agent = user_agent
 
@@ -12,7 +12,6 @@ class RandomUserAgentMiddleware(UserAgentMiddleware):
         ua = random.choice(self.user_agent_list)
         if ua:
             request.headers.setdefault('User-Agent', ua)
-
 
     user_agent_list = [ \
         "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 "

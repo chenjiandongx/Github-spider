@@ -1,5 +1,6 @@
 import csv
 import pymysql
+from collections import namedtuple
 
 conn = pymysql.connect(host="localhost", port=3306, user="root", passwd="0303", db="chenx", charset="utf8")
 cur = conn.cursor()
@@ -24,10 +25,12 @@ create table userdata(
 """
 
 def import_repo_data():
-    """ 导入爬出仓库数据到数据库 """
+    """ 导入爬取仓库数据到数据库 """
 
     with open(r"e:\python\github\data\repostar.csv", "r", encoding="utf-8") as f:
-        data = csv.reader(f)
+        reader = csv.reader(f)
+        headers = next(reader)
+        print(headers)
 
         def insert_db(repo, repo_fork, repo_star, repo_watch):
 
@@ -38,20 +41,21 @@ def import_repo_data():
             conn.commit()
             print("Insert repo: " + repo)
 
-        for index, value in enumerate(data):
-            if index > 0:
-                repo, repo_fork, repo_star, repo_watch = value
-                try:
-                    insert_db(repo, repo_fork, repo_star, repo_watch)
-                except Exception as e:
-                    print(e)
+        for _, value in enumerate(reader):
+            repo, repo_fork, repo_star, repo_watch = value
+            try:
+                insert_db(repo, repo_fork, repo_star, repo_watch)
+            except Exception as e:
+                print(e)
 
 
 def import_user_data():
-    """ 导入爬出用户数据到数据库 """
+    """ 导入爬取用户数据到数据库 """
 
-    with open(r"e:\python\github\data\userdata1.csv", "r", encoding="utf-8") as f:
-        data = csv.reader(f)
+    with open(r"e:\python\github\data\userdata.csv", "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        headers = next(reader)
+        print(headers)
 
         def insert_db(user, user_repo, user_star, user_follower, user_following):
 
@@ -62,13 +66,31 @@ def import_user_data():
             conn.commit()
             print("Insert user: " + user)
 
-        for index, value in enumerate(data):
-            if index > 0:
-                user, user_repo, user_star, user_follower, user_following = value
-                try:
-                    insert_db(user, user_repo, user_star, user_follower, user_following)
-                except Exception as e:
-                    print(e)
+        for _, value in enumerate(reader):
+            user, user_repo, user_star, user_follower, user_following = value
+            try:
+                insert_db(user, user_repo, user_star, user_follower, user_following)
+            except Exception as e:
+                print(e)
+
+
+def replacek():
+    """ 爬取数据 1000 用 k 表示的，要换回整数 """
+
+    with open(r"e:\python\github\data\userdata.csv", "r") as f:
+        reader = csv.reader(f)
+        headers = next(reader)
+        # print(headers)
+        Row = namedtuple('Row', headers)
+
+        for r in reader:
+            row = Row(*r)
+            col = row.user_follower
+            if col[-1] == "k":
+                v = int(float(col[:-1]) * 1000)
+                print(v)
+            else:
+                print(col)
 
 
 if __name__ == "__main__":
