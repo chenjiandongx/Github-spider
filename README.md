@@ -1,4 +1,4 @@
-# Github 分析爬虫  
+# Github 用户及仓库分析爬虫  
 
 ### 爬虫介绍
 写完了 Stackoverflow 的爬虫，这回打算写 Github 的，利用 Scrapy 框架对 Github 用户和仓库信息进行爬取，图片利用管道下载。  
