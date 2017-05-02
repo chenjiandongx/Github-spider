@@ -108,21 +108,21 @@ vue.js 作者尤雨溪位列第三。廖雪峰紧跟其后排在第四，话说�
 
 forks 数超过 1000 的仓库共有 1586 个，看看各语言都有几个，选取排名前 10 的语言生成条形图  
 
-![](http://oog4yfyu0.bkt.clouddn.com/l_forks_1000.png)  
+![](https://github.com/chenjiandongx/Github/blob/master/images/l_forks_1000.png)  
 
 再把维度扩大到 10000，共 41 个  
 
-![](http://oog4yfyu0.bkt.clouddn.com/l_forks_10000.png)
+![](https://github.com/chenjiandongx/Github/blob/master/images/l_forks_10000.png)
 
 JavaScript，Java，Python 基本上是稳居前 3 名，特别是 JavaScript，真是大红大紫，当然我大 Python 也是很有潜力的  
 
 stars 数超过 1000 的仓库有 10410 个  
 
-![](http://oog4yfyu0.bkt.clouddn.com/L_stars_1000.png)
+![](https://github.com/chenjiandongx/Github/blob/master/images/L_stars_1000.png)
 
 超过 10000 的 402 个  
 
-![](http://oog4yfyu0.bkt.clouddn.com/L_stars_10000.png)  
+![](https://github.com/chenjiandongx/Github/blob/master/images/L_stars_10000.png)  
 
 各大语言的分布情况基本上和 forks 数是一致的。唯一不同的语言就是 HTML 换成了 CSS，不过也都差不多，这两门语言基本上都是不分家的  
 
