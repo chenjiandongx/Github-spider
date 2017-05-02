@@ -137,13 +137,14 @@ class GithubSpider(scrapy.Spider):
         """ 解析特定查询下返回的结果数 """
 
         html = response.body.decode("utf-8")
-
+        # result1, result2 分别匹配两种不同情况的结果数
         result1 = [s.replace(",", "") for s in
                    re.findall(r'\S+(?= available repository)', html)]
         result2 = [s.replace(",", "") for s in
                    re.findall(r'pb-3\">\s+<h3>\s+([\d\,]+)', html)]
 
         item = resultcntitems.Item()
+        # 匹配到哪个就哪个作为结果，两者不可能同时匹配到
         if result1:
             item['result_cnt'] = result1
         if result2:
@@ -158,5 +159,6 @@ class GithubSpider(scrapy.Spider):
         imgae_urls = re.findall(r'relative\" height=\"48\" src=\"(\S*)\"', html)
 
         item = imageitems.Item()
+        # 隐式调用管道下载
         item['image_urls'] = imgae_urls
         yield item

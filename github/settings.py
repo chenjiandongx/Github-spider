@@ -63,7 +63,6 @@ COOKIES_ENABLED = False
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 
 DOWNLOADER_MIDDLEWARES = {
-   # 'github.middlewares.MyCustomDownloaderMiddleware': 543,
    'github.middlewares.useragent.RandomUserAgentMiddleware':400,
    'github.middlewares.httpproxy.ProxyMiddleware':750,
 }
@@ -79,8 +78,10 @@ DOWNLOADER_MIDDLEWARES = {
 # ITEM_PIPELINES = {
 #    'github.pipelines.imagepipeline.MyImagesPipeline': 1,
 # }
+
 # images store path
 IMAGES_STORE = r'.\avatar'
+
 # 30 days of delay for images expiration
 IMAGES_EXPIRES = 30
 
