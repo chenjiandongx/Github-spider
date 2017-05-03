@@ -9,8 +9,8 @@ Github 是一个很棒的社区，这里可以找到很多优秀的项目，很�
 
 先来看看 Github 全站 followers 人数 top10 都是哪些大犇
 
-| avatar | user                            | user_repo | user_star | user_follower | user_following |
-|--------|---------------------------------|-----------|-----------|---------------|----------------|
+| Avatar | User                            | Repos | Stars | Followers | Following |
+|--------|---------------------------------|-------|-------|-----------|-----------|
 |![](http://oog4yfyu0.bkt.clouddn.com/torvalds.jpg)      | https://github.com/torvalds     |     4 |     2 |   53500 |    0 |
 |![](http://oog4yfyu0.bkt.clouddn.com/JakeWharton.jpg)   | https://github.com/JakeWharton  |    93 |   213 |   34000 |   12 |
 |![](http://oog4yfyu0.bkt.clouddn.com/tj.jpg)            | https://github.com/tj           |   253 |  1700 |   27600 |   46 |
@@ -30,8 +30,8 @@ Github 的地区选项自由度很大，所以比较难统计出各国的注册�
  
 那来了解一下国情，在国区的这 77473 人中，followers 人数 top10 如下  
 
-|  avatar|         user    |	user_following | user_follower |
-|--------|-----------------|-------------------|---------------|
+|  Avatar |         User    |	Following | Followers |
+|---------|-----------------|-------------|-----------|
 |![](http://oog4yfyu0.bkt.clouddn.com/ruanyf.jpg)       |https://github.com/ruanyf	    |  0	 |  25.2k  |
 |![](http://oog4yfyu0.bkt.clouddn.com/daimajia.jpg)     |https://github.com/daimajia	|  236   |  16.5k  |
 |![](http://oog4yfyu0.bkt.clouddn.com/yyx990803.jpg)    |https://github.com/yyx990803	|  89	 |  16.2k  |
@@ -48,18 +48,18 @@ vue.js 作者尤雨溪位列第三。廖雪峰紧跟其后排在第四，话说�
 
 个人仓库数量 top10，因为组织的话无法查看具体仓库数，所以就选取了个人的
 
-|              user                |user_repo|
-|----------------------------------|-------  |
-|https://github.com/pombredanne    |  35.4k  |
-|https://github.com/gitter-badger  |  27.1k  |
-|https://github.com/carriercomm    |  18.8k  |
-|https://github.com/digideskio     |  16.9k  |
-|https://github.com/bestwpw        |  13.8k  |
-|https://github.com/modulexcite    |  10.7k  |
-|https://github.com/happyqq        |  9.1k   |
-|https://github.com/kleopatra999   |  8.2k   |
-|https://github.com/treejames      |  7.2k   |
-|https://github.com/carabina       |  7.2k   |  
+|               User                | Repos   |
+| ----------------------------------|-------  |
+| https://github.com/pombredanne    |  35.4k  |
+| https://github.com/gitter-badger  |  27.1k  |
+| https://github.com/carriercomm    |  18.8k  |
+| https://github.com/digideskio     |  16.9k  |
+| https://github.com/bestwpw        |  13.8k  |
+| https://github.com/modulexcite    |  10.7k  |
+| https://github.com/happyqq        |  9.1k   |
+| https://github.com/kleopatra999   |  8.2k   |
+| https://github.com/treejames      |  7.2k   |
+| https://github.com/carabina       |  7.2k   |  
 
 前两名都好多，项目数量都达到了 27k 以上，好强，他们是怎么办到的
 
@@ -67,7 +67,7 @@ vue.js 作者尤雨溪位列第三。廖雪峰紧跟其后排在第四，话说�
 ## Repo 类
 仓库的 stars top10  
 
-| repo                                          | repo_fork | repo_star | repo_watch |
+| Repo                                          | Fork      | Star      | Watch      |
 |-----------------------------------------------|-----------|-----------|------------|
 | https://github.com/freeCodeCamp/freeCodeCamp  |     11121 |    261439 |       7638 |
 | https://github.com/twbs/bootstrap             |     50468 |    109702 |       6833 |
@@ -83,7 +83,7 @@ vue.js 作者尤雨溪位列第三。廖雪峰紧跟其后排在第四，话说�
 
 仓库的 forks top10  
 
-| repo                                                  | repo_fork | repo_star | repo_watch |
+| Repo                                                  | Fork      | Star      | Watch      |
 |-------------------------------------------------------|-----------|-----------|------------|
 | https://github.com/jtleek/datasharing                 |    170171 |      3858 |        546 |
 | https://github.com/rdpeng/ProgrammingAssignment2      |    101258 |       469 |        117 |
@@ -98,7 +98,7 @@ vue.js 作者尤雨溪位列第三。廖雪峰紧跟其后排在第四，话说�
 
 两个 top10 中有多少个是重叠的呢，答案是 3 个  
 
-| repo                                     | repo_star | repo_fork | repo_watch |
+| Repo                                     | Star      | Fork      | Watch      |
 |------------------------------------------|-----------|-----------|------------|
 | https://github.com/twbs/bootstrap        |    109702 |     50468 |       6833 |
 | https://github.com/angular/angular.js    |     55503 |     27738 |       4407 |
@@ -128,7 +128,7 @@ stars 数超过 1000 的仓库有 10410 个
 
 来看个有趣的排名，全站代码量 top3 的仓库  
 
-| repo                                        |
+| Repo                                        |
 |---------------------------------------------|
 |https://github.com/opengapps/arm             |
 |https://github.com/kiang/data.fda.gov.tw     |
@@ -138,7 +138,7 @@ stars 数超过 1000 的仓库有 10410 个
 ### 了解一下 Python 的情况
 Python 仓库 stars 数 top10  
 
-| repo                                                     | repo_fork | repo_star | repo_watch |
+| Repo                                                     | Fork      | Star      | Watch      |
 |----------------------------------------------------------|-----------|-----------|------------|
 | https://github.com/vinta/awesome-python                  |      6215 |     33163 |       2957 |
 | https://github.com/jakubroztocil/httpie                  |      1949 |     29302 |        856 |
@@ -153,7 +153,7 @@ Python 仓库 stars 数 top10
 
 Python 仓库 forks 数 top10  
 
-| repo                                                     | repo_fork | repo_star | repo_watch |
+| Repo                                                     | Fork      | Star      | Watch      |
 |----------------------------------------------------------|-----------|-----------|------------|
 | https://github.com/shadowsocks/shadowsocks               |     10533 |     17302 |       1520 |
 | https://github.com/django/django                         |     10298 |     25208 |       1523 |
@@ -168,13 +168,13 @@ Python 仓库 forks 数 top10
 
 shadowsocks 在 stars 里排不进 top10，居然在 forks 里勇夺第一了，这梯子圆了多少人的翻墙梦。另外一架梯子 XX-NET 很遗憾，两项都没挤进 top10，扎心了老铁  
 
-| repo                                                     | repo_fork | repo_star | repo_watch |
+| Repo                                                     | Fork | Star | Watch |
 |----------------------------------------------------------|-----------|-----------|------------|
 | https://github.com/XX-net/XX-Net                         |   4682    |   13787   |       1343 |  
 
 老规矩，看看这两个 top10 交集部分，有 5 个，如下。（ 两个前 top100 中交集有 52 个 ）   
 
-| repo                                                     | repo_star | repo_fork | repo_watch |
+| Repo                                                     | Star | Fork | Watch |
 |----------------------------------------------------------|-----------|-----------|------------|
 | https://github.com/django/django                         |     25208 |     10298 |       1523 |
 | https://github.com/pallets/flask                         |     26618 |      8430 |       1681 |
