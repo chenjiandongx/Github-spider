@@ -68,7 +68,6 @@ class GithubSpider(scrapy.Spider):
 
     def prepare_repos(self, response):
         """ 解析仓库类查询的列表，并回调给下一级解析方法 """
-
         html = response.body.decode("utf-8")
         repos = re.findall(r'(?<="v-align-middle">)[\w\/\-\.]+', html)
 
@@ -78,7 +77,6 @@ class GithubSpider(scrapy.Spider):
 
     def prepare_users(self, response):
         """ 解析用户类查询的列表，并回调给下一级解析方法 """
-
         html = response.body.decode("utf-8")
         users = re.findall(r'(?<=ml-2\">\n\s{6}<a href=\")\S+(?=\">)', html)
 
@@ -88,7 +86,6 @@ class GithubSpider(scrapy.Spider):
 
     def parse_forks_stars(self, response):
         """ 解析具体仓库的 forks 和 stars 的数据 """
-
         html = response.body.decode("utf-8")
         repo_data = re.findall(r'(?<=aria-label=\")\d+', html)
         try:
@@ -103,7 +100,6 @@ class GithubSpider(scrapy.Spider):
 
     def parse_user(self, response):
         """ 解析具体用户的数据 """
-
         html = response.body.decode("utf-8")
         user_data = [data.strip() for data in re.findall(r'(?<=Counter\">)\s+\S+\s+', html)]
         try:
@@ -118,7 +114,6 @@ class GithubSpider(scrapy.Spider):
 
     def parse_language(self, response):
         """ 解析特定查询下仓库的语言对应的数量 """
-
         html = response.body.decode("utf-8")
         language = re.findall(r'(?<=</span>\n\s{14})\S+', html)
         language_cnt = [l.replace(",", "") for l in re.findall(r'(?<=count\">)\d*\,?\d+', html)]
@@ -135,7 +130,6 @@ class GithubSpider(scrapy.Spider):
 
     def parse_resultcnt(self, response):
         """ 解析特定查询下返回的结果数 """
-
         html = response.body.decode("utf-8")
         # result1, result2 分别匹配两种不同情况的结果数
         result1 = [s.replace(",", "") for s in
@@ -154,7 +148,6 @@ class GithubSpider(scrapy.Spider):
 
     def parse_image(self, response):
         """ 解析头像下载地址，并结合管道下载 """
-
         html = response.body.decode("utf-8")
         imgae_urls = re.findall(r'relative\" height=\"48\" src=\"(\S*)\"', html)
 

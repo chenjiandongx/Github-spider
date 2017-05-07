@@ -4,7 +4,6 @@ from scrapy.exceptions import DropItem
 
 class MyImagesPipeline(ImagesPipeline):
 
-
     # def file_path(self, request, response=None, info=None):
     #     """ Name download version """
     #

@@ -26,7 +26,6 @@ create table userdata(
 
 def import_repo_data():
     """ 导入爬取仓库数据到数据库 """
-
     with open(r"e:\python\github\data\repostar.csv", "r", encoding="utf-8") as f:
         reader = csv.reader(f)
         headers = next(reader)
@@ -51,7 +50,6 @@ def import_repo_data():
 
 def import_user_data():
     """ 导入爬取用户数据到数据库 """
-
     with open(r"e:\python\github\data\userdata.csv", "r", encoding="utf-8") as f:
         reader = csv.reader(f)
         headers = next(reader)
@@ -76,7 +74,6 @@ def import_user_data():
 
 def replacek():
     """ 爬取数据 1000 用 k 表示的，要换回整数 """
-
     with open(r"e:\python\github\data\userdata.csv", "r") as f:
         reader = csv.reader(f)
         headers = next(reader)

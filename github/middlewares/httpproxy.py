@@ -8,28 +8,24 @@ class ProxyMiddleware(HttpProxyMiddleware):
 
     def process_request(self, request, spider):
         """  使用外部代理方法 """
-
         proxy = self.proxy_xxnet()
         request.meta['proxy'] = proxy
 
     @staticmethod
     def proxy_xxnet():
         """ 使用 xx-net 代理 """
-
         proxy = "http://127.0.0.1:8087"
         return proxy
 
     @staticmethod
     def proxy_shadowsocks():
         """ 使用 shadowsocks 代理 """
-
         proxy = "http://127.0.0.1:1080"
         return proxy
 
     @staticmethod
     def proxy_freeip():
         """ 使用免费 ip 代理，不过这个效果不佳 """
-
         ip_ports = [
             "http://82.43.21.165:3128",
             "http://185.112.234.4:80",
